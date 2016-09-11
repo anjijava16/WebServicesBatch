@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.ws.iwinner.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.ws.iwinner.com" xmlns:intf="http://service.ws.iwinner.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.ws.iwinner.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="loginVerfication">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginVerficationResponse">
+    <complexType>
+     <sequence>
+      <element name="loginVerficationReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="loginVerficationResponse">
+
+      <wsdl:part element="impl:loginVerficationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginVerficationRequest">
+
+      <wsdl:part element="impl:loginVerfication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LoingWSServiceImpl">
+
+      <wsdl:operation name="loginVerfication">
+
+         <wsdl:input message="impl:loginVerficationRequest" name="loginVerficationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginVerficationResponse" name="loginVerficationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LoingWSServiceImplSoapBinding" type="impl:LoingWSServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="loginVerfication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginVerficationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginVerficationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LoingWSServiceImplService">
+
+      <wsdl:port binding="impl:LoingWSServiceImplSoapBinding" name="LoingWSServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:3636/WService/services/LoingWSServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
