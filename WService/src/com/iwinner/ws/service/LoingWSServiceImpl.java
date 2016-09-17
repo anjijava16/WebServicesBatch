@@ -2,25 +2,31 @@ package com.iwinner.ws.service;
 
 import java.rmi.RemoteException;
 
+import com.iwinner.ws.jdbc.dao.ProcessDaoIF;
+import com.iwinner.ws.jdbc.dao.ProcessDaoImpl;
+
 public class LoingWSServiceImpl implements LoingWSServiceIF {
 
 	public boolean loginVerfication(String username, String password)
 			throws RemoteException {
-	
+
 		// Write the bunisess Logic Here
 
-				if (username != null && password != null) {
+		if (username != null && password != null) {
 
-					if (username.equalsIgnoreCase("java")&& password.equalsIgnoreCase("java")) {
-						return true;
-					} else {
-						return false;
-					}
-				} else {
+			ProcessDaoIF processsDaoIF = new ProcessDaoImpl();
 
-					return false;
-				}
+			boolean status = processsDaoIF.loginVerifaction(username, password);
+
+			if (status) {
+				return true;
+			} else {
+				return false;
 			}
+
+		} else {
+
+			return false;
+		}
 	}
-
-
+}
