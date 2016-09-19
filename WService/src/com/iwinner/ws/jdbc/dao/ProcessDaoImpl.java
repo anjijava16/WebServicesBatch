@@ -1,12 +1,14 @@
 package com.iwinner.ws.jdbc.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
 import com.iwinner.ws.jdbc.utils.DbUtils;
+import com.iwinner.ws.service.UserInfoDTO;
 
 public class ProcessDaoImpl implements ProcessDaoIF {
 
@@ -43,4 +45,27 @@ public class ProcessDaoImpl implements ProcessDaoIF {
 		return LOGIN_STATUS;
 	}
 
+	
+	public UserInfoDTO getUserDetails(String username) {
+		
+		UserInfoDTO userInfoDTO=null;
+		try {
+			Connection conn = DbUtils.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from login_ws_tbl as ts where ts.USERNAME='"+username+"'");
+			while (rs.next()) {
+				userInfoDTO=new UserInfoDTO();
+				userInfoDTO.setUsername(rs.getString("USERNAME"));
+				userInfoDTO.setPassword(rs.getString("PASSWORD"));
+				userInfoDTO.setCreateDate(rs.getDate("CREATED_DATE").toString());
+				userInfoDTO.setEditDate(rs.getDate("EDITEDDATE").toString());
+				
+				return userInfoDTO;
+			}
+
+		}catch(Exception e){
+			
+		}
+		return userInfoDTO;
+	}
 }
