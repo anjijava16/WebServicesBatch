@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://service.ws.iwinner.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.ws.iwinner.com" xmlns:intf="http://service.ws.iwinner.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions
+targetNamespace="http://service.ws.iwinner.com" 
+xmlns:apachesoap="http://xml.apache.org/xml-soap" 
+xmlns:impl="http://service.ws.iwinner.com"
+ xmlns:intf="http://service.ws.iwinner.com"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    >
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
@@ -18,6 +27,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
       <element name="loginVerficationReturn" type="xsd:boolean"/>
      </sequence>
     </complexType>
+    
    </element>
   </schema>
  </wsdl:types>

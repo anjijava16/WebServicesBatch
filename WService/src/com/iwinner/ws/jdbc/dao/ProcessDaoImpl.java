@@ -64,7 +64,7 @@ public class ProcessDaoImpl implements ProcessDaoIF {
 			}
 
 		}catch(Exception e){
-			
+			e.printStackTrace();
 		}
 		return userInfoDTO;
 	}

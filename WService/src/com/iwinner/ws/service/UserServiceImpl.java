@@ -15,10 +15,14 @@ public class UserServiceImpl implements UserServiceIF {
 			ProcessDaoIF processsDaoIF = new ProcessDaoImpl();
 
 			userInfo = processsDaoIF.getUserDetails(username);
+			
+			
 		} else {
 			userInfo = null;
 		}
 		return userInfo;
 	}
+	
+	// 
 
 }
